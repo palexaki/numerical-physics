@@ -1,5 +1,6 @@
 from copy import deepcopy
 cfile = open("/home/philippos/.config/numeric-phys/config","r")
+variables = {}
 def configurestart(cfile):
     for line in cfile:
         line = line.rstrip()
@@ -11,12 +12,13 @@ def configurestart(cfile):
         variablest = foundc + 2
         variablend = line.find("'")
         if variablend == -1:
-            globals()[line[:foundc]] = float(line[variablest:])
+            variables[line[:foundc]] = float(line[variablest:])
         else:
-            globals()[line[:foundc]] = float(line[variablest:variablend])
+            variables[line[:foundc]] = float(line[variablest:variablend])
+
+def startformula(cfile):
+    pass
 
 
 configurestart(cfile)
-#globalsio = deepcopy(globals())
-#for variable in globalsio:
-print('\n'.join(repr((u,globals()[u])) for u in globals() if not u.startswith('__')))
+print('\n'.join(repr((u,variables[u])) for u in variables if not u.startswith('__')))

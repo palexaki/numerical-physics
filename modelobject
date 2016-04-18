@@ -1,0 +1,33 @@
+'Formules
+'Stopconditie ingesteld
+'Deze berekening is gebaseerd op Euler
+k:=0,5*A*cw*rho
+Fwr:=k*v^2
+Fres:=Fzw-Fwr
+a:=Fres/m
+v:=v+a*dt
+y:=y+v*dt
+h:=h0-y
+t:=t+dt
+als h<h1 dan
+  A:=Ap
+eindals
+
+'Beginwaardes
+m:=20           'kg
+g:=9,81         'm/s^2
+v0:=0           'm/s
+y0:=0           'm
+v:=v0           'm/s
+y:=y0           'm
+h0:=1600        'm
+h1:=400         'm
+Fzw:=m*g        'N
+cw:=0,5
+A:=0,75         'm^2
+rho:=1,293      'kg/m^3
+k:=0,5*A*cw*rho
+Fwr:=k*v^2
+t:=0            's
+dt:=0,1         's
+Ap:=16          'm^2
