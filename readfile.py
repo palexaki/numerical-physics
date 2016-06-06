@@ -10,16 +10,17 @@ def configurestart(cfile):
         foundc = line.find(":")
         if foundc == -1:
             raise SystemExit("FATAL ERROR IN LINE CONTAINING {}".format(line))
-        variablest = foundc + 2
-        variablend = line.find("'")
+        varst = foundc + 2
+        varend = line.find("'")
+        varname = line[:founc].rstrip().lstrip()
         if variablend == -1:
-            variables[line[:foundc]] = float(line[variablest:])
+            variables[varname] = float(line[varst:])
         else:
-            variables[line[:foundc]] = float(line[variablest:variablend])
+            variables[varname] = float(line[varst:varend])
 
 def startformula(cfile):
     pass
 
 
 configurestart(cfile)
-print('\n'.join(repr((u,variables[u])) for u in variables if not u.startswith('__')))
+print('\n'.join(repr((u,variables[u])) for u in variables))
