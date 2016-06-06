@@ -1,5 +1,6 @@
 from copy import deepcopy
-cfile = open("/home/philippos/.config/numeric-phys/config","r")
+import sys
+cfile = open(sys.argv[1], 'r')
 variables = {}
 def configurestart(cfile):
     for line in cfile:
