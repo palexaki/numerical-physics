@@ -12,7 +12,7 @@ def configurestart(cfile):
             raise SystemExit("FATAL ERROR IN LINE CONTAINING {}".format(line))
         varst = foundc + 2
         varend = line.find("'")
-        varname = line[:founc].rstrip().lstrip()
+        varname = line[:foundc].rstrip().lstrip()
         if variablend == -1:
             variables[varname] = float(line[varst:])
         else:
