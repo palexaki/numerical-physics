@@ -13,7 +13,7 @@ def configurestart(cfile):
         varst = foundc + 2
         varend = line.find("'")
         varname = line[:foundc].rstrip().lstrip()
-        if variablend == -1:
+        if varend == -1:
             variables[varname] = float(line[varst:])
         else:
             variables[varname] = float(line[varst:varend])
